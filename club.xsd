@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="typeComplexite">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="typeTempsExecution">
+    <xs:restriction base="xs:integer">
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="typeCoefficient">
+    <xs:restriction base="xs:decimal">
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="typeEmail">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[^@]+@[^@]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="typeStringNonVide">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="club">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="categories">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="categorie" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:ID" use="required"/>
+                  <xs:attribute name="libelle" type="typeStringNonVide" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="membres">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="membre" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="nom" type="typeStringNonVide"/>
+                    <xs:element name="prenom" type="typeStringNonVide"/>
+                    <xs:element name="email" type="typeEmail"/>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:ID" use="required"/>
+                  <xs:attribute name="categorieRef" type="xs:IDREF" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="concours">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="concours" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="titre" type="typeStringNonVide"/>
+                    <xs:element name="participants">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="participant" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="complexite" type="typeComplexite"/>
+                                <xs:element name="tempsExecution" type="typeTempsExecution"/>
+                              </xs:sequence>
+                              <xs:attribute name="membreRef" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:ID" use="required"/>
+                  <xs:attribute name="categorieRef" type="xs:IDREF" use="required"/>
+                  <xs:attribute name="date" type="xs:date" use="required"/>
+                  <xs:attribute name="coefficient" type="typeCoefficient" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+      <xs:attribute name="nom" type="typeStringNonVide" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
