@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<club nom="Info_Tech"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="club.xsd">
+
+  <categories>
+    <categorie id="C1" libelle="Intelligence Artificielle"/>
+    <categorie id="C2" libelle="Développement Web"/>
+    <categorie id="C3" libelle="Sécurité Informatique"/>
+  </categories>
+
+  <membres>
+    <membre id="M001" categorieRef="C1">
+      <nom>Guermit</nom>
+      <prenom>Douaa</prenom>
+      <email>d.guermit@club.dz</email>
+    </membre>
+    <membre id="M002" categorieRef="C1">
+      <nom>Hamioud</nom>
+      <prenom>Bouchra</prenom>
+      <email>b.hamioud@club.dz</email>
+    </membre>
+    <membre id="M003" categorieRef="C1">
+      <nom>Dahmri</nom>
+      <prenom>Chems</prenom>
+      <email>c.dahmri@club.dz</email>
+    </membre>
+    <membre id="M004" categorieRef="C2">
+      <nom>Ferroum</nom>
+      <prenom>Sirine</prenom>
+      <email>s.ferroum@club.dz</email>
+    </membre>
+    <membre id="M005" categorieRef="C2">
+      <nom>Bensaid</nom>
+      <prenom>Amira</prenom>
+      <email>a.bensaid@club.dz</email>
+    </membre>
+    <membre id="M006" categorieRef="C2">
+      <nom>Rahmouni</nom>
+      <prenom>Yasmine</prenom>
+      <email>y.rahmouni@club.dz</email>
+    </membre>
+    <membre id="M007" categorieRef="C3">
+      <nom>Belkacemi</nom>
+      <prenom>Rania</prenom>
+      <email>r.belkacemi@club.dz</email>
+    </membre>
+    <membre id="M008" categorieRef="C3">
+      <nom>Mezhoudi</nom>
+      <prenom>Lina</prenom>
+      <email>l.mezhoudi@club.dz</email>
+    </membre>
+  </membres>
+
+  <concours>
+    <concours id="CO1" categorieRef="C1"
+              date="2025-03-15" coefficient="1.5">
+      <titre>Concours IA — Printemps 2025</titre>
+      <participants>
+        <participant membreRef="M001">
+          <complexite>85</complexite>
+          <tempsExecution>120</tempsExecution>
+        </participant>
+        <participant membreRef="M002">
+          <complexite>90</complexite>
+          <tempsExecution>100</tempsExecution>
+        </participant>
+        <participant membreRef="M003">
+          <complexite>75</complexite>
+          <tempsExecution>150</tempsExecution>
+        </participant>
+      </participants>
+    </concours>
+
+    <concours id="CO2" categorieRef="C2"
+              date="2025-04-10" coefficient="1.2">
+      <titre>Concours Web — Avril 2025</titre>
+      <participants>
+        <participant membreRef="M004">
+          <complexite>80</complexite>
+          <tempsExecution>200</tempsExecution>
+        </participant>
+        <participant membreRef="M005">
+          <complexite>70</complexite>
+          <tempsExecution>180</tempsExecution>
+        </participant>
+        <participant membreRef="M006">
+          <complexite>95</complexite>
+          <tempsExecution>160</tempsExecution>
+        </participant>
+      </participants>
+    </concours>
+
+    <concours id="CO3" categorieRef="C3"
+              date="2025-05-20" coefficient="2.0">
+      <titre>Concours Sécurité — Mai 2025</titre>
+      <participants>
+        <participant membreRef="M007">
+          <complexite>88</complexite>
+          <tempsExecution>90</tempsExecution>
+        </participant>
+        <participant membreRef="M008">
+          <complexite>92</complexite>
+          <tempsExecution>110</tempsExecution>
+        </participant>
+        <participant membreRef="M007">
+          <complexite>78</complexite>
+          <tempsExecution>130</tempsExecution>
+        </participant>
+      </participants>
+    </concours>
+  </concours>
+
+</club>
